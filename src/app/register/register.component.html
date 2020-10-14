@@ -1,0 +1,32 @@
+<h2>Cadastro</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" formControlName="nome" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nome.errors }" />
+        <div *ngIf="submitted && f.nome.errors" class="invalid-feedback">
+            <div *ngIf="f.nome.errors.required">Name é obrigatorio</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="crm">CRM</label>
+        <input type="text" formControlName="crm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.crm.errors }" />
+        <div *ngIf="submitted && f.crm.errors" class="invalid-feedback">
+            <div *ngIf="f.crm.errors.required">CRM é obrigatorio</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" formControlName="senha" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.senha.errors }" />
+        <div *ngIf="submitted && f.senha.errors" class="invalid-feedback">
+            <div *ngIf="f.senha.errors.required">Senha é obrigatoria</div>
+            <div *ngIf="f.senha.errors.minlength">senha deve ter mais de 6 digitos</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Salvar
+        </button>
+        <a routerLink="/login" class="btn btn-link">Cancelar</a>
+    </div>
+</form>
