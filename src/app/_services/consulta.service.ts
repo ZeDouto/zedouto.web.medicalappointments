@@ -20,17 +20,21 @@ export class ConsultaService{
 
  constructor(private http: HttpClient) { }
 
- getAll() {
-     return this.http.get<User[]>(`/users`);
+ getId(id) {
+     return this.http.get<Consulta>(this.url + '/' + id,this.httpOptions).pipe(catchError(this.handleError));
  }
 
  register(consulta: Consulta) {
      return this.http.post(this.url,  JSON.stringify(consulta), this.httpOptions).pipe(catchError(this.handleError));
  }
 
- delete(id: number) {
-     return this.http.delete(`/users/${id}`);
+ getConsultaByPaciente(id: string) {
+     return this.http.get<Consulta[]>(this.url + '/paciente/' + id, this.httpOptions).pipe(catchError(this.handleError));
  }
+
+ getConsultaByMedico(id: string) {
+  return this.http.get<Consulta[]>(this.url + '/medico/' + id, this.httpOptions).pipe(catchError(this.handleError));
+}
 
  handleError(error: HttpErrorResponse) {
      let errorMessage = '';

@@ -1,0 +1,47 @@
+<app-toolbar></app-toolbar>
+<app-conteudo-pagina>
+  <h1>Consulta</h1>
+  <mat-chip> Data realizada: {{consulta.data}}</mat-chip>
+  <mat-tab-group class="tab-group-margin" animationDuration="0ms" mat-align-tabs="center">
+    <mat-tab label="Paciente">
+      <div class="container container-group consulta-tab">
+        <app-paciente (enviarPaciente)="recebePaciente($event)" [pesquisa] ="true" [recebePaciente]="paciente"></app-paciente>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Medico">
+      <div class="container container-group consulta-tab">
+        <app-medico (enviarMedico)="recebeMedico($event)" [pesquisa] ="true" [recebeMedico]="medico"></app-medico>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Hospital">
+      <div class="container container-group consulta-tab">
+        <app-hospital (enviarHospital)="recebeHospital($event)" [pesquisa] ="true" [recebeHospital]="hospital"></app-hospital>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</app-conteudo-pagina>
+
+<app-conteudo-pagina>
+    <form [formGroup]="detalhesForm">
+  
+            <div class="boxsizingBorder">
+            <mat-form-field appearance="outline" class="boxsizingBorder">
+              <mat-label>Sintomas Apresentados</mat-label>
+              <textarea matInput #sintomas formControlName="sintomasApresentados" rows="8" maxlength="500"></textarea>
+                <mat-hint aling="end">500 </mat-hint>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="outline" class="boxsizingBorder">
+              <mat-label>Exames Realizados</mat-label>
+              <textarea matInput #exame formControlName="examesRealizados" rows="8" maxlength="500"></textarea>
+                <mat-hint aling="end">500 </mat-hint>
+            </mat-form-field>
+          </div>
+  
+      <button mat-raised-button color="primary">Atualizar</button>
+  
+    </form>
+  </app-conteudo-pagina>

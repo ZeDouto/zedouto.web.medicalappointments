@@ -3,6 +3,7 @@ import { Medico } from './medico';
 import { Paciente } from './paciente';
 
 export class Consulta {
+    id: string;
     paciente: Paciente;
     medico: Medico;
     hospital: Hospital;

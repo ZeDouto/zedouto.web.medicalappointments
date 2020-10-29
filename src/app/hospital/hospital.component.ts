@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Hospital } from '../_models/hospital';
@@ -12,10 +12,18 @@ import { HospitalService } from '../_services/hospital.service';
 export class HospitalComponent implements OnInit {
 
   @Output() enviarHospital = new EventEmitter();
+  @Input() pesquisa: boolean;
+
+  @Input() set recebeHospital(hospital) {
+    let hospitais =[];
+    hospitais.push(hospital);
+    this.dataSource = new MatTableDataSource<Hospital>(hospitais);
+  };
 
   hospitalForm: FormGroup;
   displayedColumns = ['endereco', 'nomeFantasia'];
   dataSource = new MatTableDataSource<Hospital>();
+  mostrar: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,7 +39,13 @@ export class HospitalComponent implements OnInit {
       cep: ['', Validators.required],
       nomeFantasia: ['', Validators.required]
     });
-    this.hospitalForm.valueChanges.subscribe(() => { if (this.hospitalForm.valid) this.enviarHospital.emit(this.hospitalForm.value) })
+
+    if (this.pesquisa) {
+      this.mostrar = false;
+    } else {
+      this.mostrar = true;
+    }
+
   }
 
   get f() { return this.hospitalForm.controls; }

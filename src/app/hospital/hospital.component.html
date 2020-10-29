@@ -1,5 +1,5 @@
 <div class="hospital-container">
-    <form [formGroup]="hospitalForm" novalidate>
+    <form [formGroup]="hospitalForm" novalidate *ngIf="mostrar">
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-2">
           <div class="m-2">

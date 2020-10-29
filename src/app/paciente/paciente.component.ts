@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Paciente } from '../_models/paciente';
@@ -11,10 +11,18 @@ import { PacienteService } from '../_services/paciente.service';
 export class PacienteComponent implements OnInit {
 
   @Output() enviarPaciente = new EventEmitter();
+  @Input() pesquisa: boolean;
+
+  @Input() set recebePaciente(paciente) {
+    let pacientes =[];
+        pacientes.push(paciente);
+        this.dataSource = new MatTableDataSource<Paciente>(pacientes);
+  };
 
   pacienteForm: FormGroup;
   displayedColumns = ['cpf', 'nome'];
   dataSource = new MatTableDataSource<Paciente>();
+  mostrar: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,6 +34,13 @@ export class PacienteComponent implements OnInit {
       nome:['', Validators.required],
       cpf: ['', Validators.required]
     })
+
+    if (this.pesquisa) {
+      this.mostrar = false;
+    } else {
+      this.mostrar = true;
+    }
+
   }
   
   get f() { return this.pacienteForm.controls; }

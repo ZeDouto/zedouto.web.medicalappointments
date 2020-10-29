@@ -51,6 +51,10 @@ import { MedicoComponent } from './medico/medico.component';
 import { HospitalComponent } from './hospital/hospital.component';
 import { ConteudoPaginaComponent } from './conteudo-pagina/conteudo-pagina.component';
 import { CommonModule} from '@angular/common';
+import { ListaConsultaComponent } from './lista-consulta/lista-consulta.component';
+import { DetalhesConsultasComponent } from './detalhes-consultas/detalhes-consultas.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //import { RegisterComponent } from './register';
 //import { AlertComponent } from './_components';
 
@@ -92,7 +96,9 @@ import { CommonModule} from '@angular/common';
         MatTableModule,
         MatSortModule,
         MatPaginatorModule,
-        CommonModule
+        CommonModule,
+        IvyCarouselModule,
+        NgbModule
     ],
     declarations: [
         AppComponent,
@@ -104,7 +110,9 @@ import { CommonModule} from '@angular/common';
         PacienteComponent,
         MedicoComponent,
         HospitalComponent,
-        ConteudoPaginaComponent
+        ConteudoPaginaComponent,
+        ListaConsultaComponent,
+        DetalhesConsultasComponent
         //AlertComponent
     ],
     providers: [MatDialog
