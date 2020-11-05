@@ -1,6 +1,8 @@
 <app-toolbar></app-toolbar>
 <app-conteudo-pagina>
-  <div class="paciente-container">
+  <h1 >Historico de consulta</h1>
+  <h1 >Consultas Realizadas</h1>
+  <div class="paciente-container" *ngIf="!esconder">
     <form [formGroup]="consultaForm" novalidate>
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-2">
@@ -24,13 +26,11 @@
     <div class="container-table flat-table">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <!-- Position Column -->
         <ng-container matColumnDef="paciente">
           <th mat-header-cell *matHeaderCellDef> Paciente </th>
           <td mat-cell *matCellDef="let element"> {{element.paciente.nome}} </td>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="medico">
           <th mat-header-cell *matHeaderCellDef> Medico </th>
           <td mat-cell *matCellDef="let element"> {{element.medico.nome}} </td>
@@ -41,7 +41,6 @@
           <td mat-cell *matCellDef="let element"> {{element.hospital.nomeFantasia}} </td>
         </ng-container>
 
-        <!-- Weight Column -->
         <ng-container matColumnDef="data">
           <th mat-header-cell *matHeaderCellDef> Data </th>
           <td mat-cell *matCellDef="let element"> {{element.data}} </td>

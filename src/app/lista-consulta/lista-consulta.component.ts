@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Consulta } from '../_models/consulta';
 import { ConsultaService } from '../_services/consulta.service';
 
@@ -15,9 +15,11 @@ export class ListaConsultaComponent implements OnInit {
   dataSource = new MatTableDataSource<Consulta>();
   consultaForm: FormGroup;
   mostrar: boolean;
+  esconder: boolean;
   constructor(
     private consultaService: ConsultaService,
     private router: Router,
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder
     ) { }
 
@@ -26,6 +28,15 @@ export class ListaConsultaComponent implements OnInit {
       cpf: ['', Validators.required],
     });
     this.mostrar = false
+    this.esconder = false
+    this.route.queryParams.subscribe( parametros => {
+      if (parametros['cpf']) {
+        this.consultaForm.get('cpf').setValue(parametros['cpf']);
+        this.buscarPorMedico();
+        this.esconder = true;
+      }
+    });
+
   }
 
     
@@ -38,8 +49,16 @@ export class ListaConsultaComponent implements OnInit {
     });
   }
 
+  buscarPorMedico(){
+    this.consultaService.getConsultaByMedico(this.consultaForm.get('cpf').value).subscribe(data =>{
+      if(data){
+      this.dataSource = new MatTableDataSource<Consulta>(data);
+      this.mostrar = true;
+      }
+    });
+  }
+
   selecionarConsulta(consulta: Consulta){
-    console.log(consulta);
     let params = {'id': consulta.id};
     this.router.navigate(['detalhesConsulta'], {queryParams: params});
   }

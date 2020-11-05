@@ -26,4 +26,8 @@ export class ToolbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  minhasConsultas(){
+    let params = {'cpf': this.currentUser.crm};
+    this.router.navigate(['listarConsulta'], {queryParams: params});
+  }
 }
