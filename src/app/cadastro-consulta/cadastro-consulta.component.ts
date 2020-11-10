@@ -24,6 +24,7 @@ export class CadastroConsultaComponent implements OnInit {
   paciente: Paciente;
   medico: Medico;
   hospital: Hospital;
+  receita: string;
   consulta: Consulta;
 
   constructor(
@@ -52,6 +53,7 @@ export class CadastroConsultaComponent implements OnInit {
     this.consulta.sintomasApresentados = this.cadastroForm.get('sintomasApresentados').value
     this.consulta.examesRealizados = this.cadastroForm.get('examesRealizados').value
     this.consulta.data = formatDate(new Date(), 'yyyy-MM-dd 00:00:00', 'en');
+    this.consulta.receita = this.receita;
     console.log(this.consulta);
 
     this.salvarConsulta(this.consulta);
@@ -67,6 +69,12 @@ export class CadastroConsultaComponent implements OnInit {
 
   recebeHospital(hospital) {
     this.hospital = hospital;
+  }
+
+  recebeReceita(receita){
+    console.log('chegou a receita');
+    console.log(receita);
+    this.receita = receita;
   }
 
   salvarConsulta(consulta: Consulta) {

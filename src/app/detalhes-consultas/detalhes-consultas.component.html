@@ -2,6 +2,7 @@
 <app-conteudo-pagina>
   <h1>Consulta</h1>
   <mat-chip> Data realizada: {{consulta.data}}</mat-chip>
+    <mat-icon>picture_as_pdf</mat-icon>
   <mat-tab-group class="tab-group-margin" animationDuration="0ms" mat-align-tabs="center">
     <mat-tab label="Paciente">
       <div class="container container-group consulta-tab">
@@ -21,9 +22,7 @@
       </div>
     </mat-tab>
   </mat-tab-group>
-</app-conteudo-pagina>
 
-<app-conteudo-pagina>
     <form [formGroup]="detalhesForm">
   
             <div class="boxsizingBorder">
@@ -41,7 +40,7 @@
             </mat-form-field>
           </div>
   
-      <button mat-raised-button color="primary">Atualizar</button>
+      <button mat-raised-button class="mat-button pull-right">Atualizar</button>
   
     </form>
   </app-conteudo-pagina>

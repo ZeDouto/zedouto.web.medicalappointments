@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "medical-appointment-5e2a7": {
+      "hosting": {
+        "medical-appointment": [
+          "medical-appointment-5e2a7"
+        ]
+      }
+    }
+  }
+}

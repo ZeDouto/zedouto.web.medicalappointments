@@ -8,7 +8,7 @@ import { AlertService, AuthenticationService } from '../_services';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
       this.loginForm = this.formBuilder.group({
-          username: ['', Validators.required],
-          password: ['', Validators.required]
+          crm: ['', Validators.required],
+          senha: ['', Validators.required]
       });
 
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       }
 
       this.loading = true;
-      this.authenticationService.login(this.f.username.value, this.f.password.value)
+      this.authenticationService.login(this.loginForm.value)
           .pipe(first())
           .subscribe(
               data => {

@@ -22,7 +22,7 @@ export class UserService {
     }
 
     register(user: User) {
-        return this.http.post(this.url,  JSON.stringify(user), this.httpOptions).pipe(catchError(this.handleError));
+        return this.http.post(this.url + '/cadastro',  JSON.stringify(user), this.httpOptions).pipe(catchError(this.handleError));
     }
 
     delete(id: number) {

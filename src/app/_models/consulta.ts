@@ -10,5 +10,6 @@ export class Consulta {
     data: string;
     sintomasApresentados: string;
     examesRealizados: string;
+    receita: string;
     
 }

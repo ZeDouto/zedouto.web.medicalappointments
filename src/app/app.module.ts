@@ -55,6 +55,16 @@ import { ListaConsultaComponent } from './lista-consulta/lista-consulta.componen
 import { DetalhesConsultasComponent } from './detalhes-consultas/detalhes-consultas.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+import {
+    AngularFireStorageModule,
+    AngularFireStorageReference,
+    AngularFireUploadTask,
+    
+  } from "@angular/fire/storage";
+import { UploadComponent } from './upload/upload.component';
 //import { RegisterComponent } from './register';
 //import { AlertComponent } from './_components';
 
@@ -98,7 +108,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         MatPaginatorModule,
         CommonModule,
         IvyCarouselModule,
-        NgbModule
+        NgbModule,
+        AngularFireAuthModule,
+        AngularFireModule,
+        AngularFireStorageModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
     declarations: [
         AppComponent,
@@ -112,11 +126,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         HospitalComponent,
         ConteudoPaginaComponent,
         ListaConsultaComponent,
-        DetalhesConsultasComponent
+        DetalhesConsultasComponent,
+        UploadComponent
         //AlertComponent
     ],
-    providers: [MatDialog
-
+    providers: [MatDialog,
     ],
     bootstrap: [AppComponent]
 })

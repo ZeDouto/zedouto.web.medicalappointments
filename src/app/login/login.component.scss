@@ -1,0 +1,120 @@
+.login{
+
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+    margin: auto;
+    padding: 20px 0 28px;
+    width: 396px;
+}
+
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+  }
+
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .main {
+    position: relative;
+    background: url('../../assets/imagens/backgroud-login.jpg');
+    background-size: cover;
+    height: 100vh;
+  
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(black, .7);
+    }
+  
+    .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        z-index: 11;
+        
+        .wrapper {
+            animation: fadeInUp 1s;
+            width: 300px;
+            margin: 0 auto;
+  
+            .title {
+                font-size: 30px;
+                font-weight: 500;
+                color: white;
+                text-align: center;
+            }
+  
+            .login-wrapper {
+                background-color: white;
+                border-radius: 10px;
+                padding: 20px 30px;
+                box-shadow: 0px 0px 5px black;
+  
+                .full-width {
+                    width: 100%;
+                }
+  
+                .send {
+                    color: white;
+                    display: block;
+                    font-size: 16px;
+                    background: linear-gradient(to right, #7676ab, #17174b);
+                    padding: 5px 30px;
+                    border-radius: 15px;
+                    margin: 0 auto;
+                    margin-top: 10px;
+                    background-size: 160% 100%;
+                    transition: all .4s ease-in-out;
+                    
+  
+                    &:hover {
+                        background-position: 100% 0;
+                    }
+                }
+  
+                .links {
+                    margin-top: 20px;
+  
+                    a {
+                        text-decoration: underline;
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+

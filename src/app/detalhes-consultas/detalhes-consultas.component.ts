@@ -35,7 +35,8 @@ export class DetalhesConsultasComponent implements OnInit {
   ngOnInit(): void {
     this.detalhesForm = this.formBuilder.group({
       sintomasApresentados: ['', Validators.required],
-      examesRealizados: ['', Validators.required]
+      examesRealizados: ['', Validators.required],
+      receita: ['']
     })
 
     this.route.queryParams.subscribe( parametros => {
@@ -66,6 +67,7 @@ export class DetalhesConsultasComponent implements OnInit {
       this.hospital = this.consulta.hospital;
       this.detalhesForm.get('sintomasApresentados').setValue(this.consulta.sintomasApresentados);
       this.detalhesForm.get('examesRealizados').setValue(this.consulta.examesRealizados);
+      
     }
   })
   

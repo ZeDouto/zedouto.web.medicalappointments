@@ -2,6 +2,8 @@
 <app-conteudo-pagina>
   <h1>Nova consulta</h1>
 
+  <app-upload (enviarReceita)="recebeReceita($event)"></app-upload>
+  
   <mat-tab-group class="tab-group-margin" animationDuration="0ms" mat-align-tabs="center">
     <mat-tab label="Paciente">
       <div class="container container-group consulta-tab">
@@ -26,22 +28,26 @@
 <app-conteudo-pagina>
   <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
 
-          <div class="boxsizingBorder">
-          <mat-form-field appearance="outline" class="boxsizingBorder">
-            <mat-label>Sintomas Apresentados</mat-label>
-            <textarea matInput #sintomas formControlName="sintomasApresentados" rows="8" maxlength="500"></textarea>
-              <mat-hint aling="end">500 </mat-hint>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="outline" class="boxsizingBorder">
-            <mat-label>Exames Realizados</mat-label>
-            <textarea matInput #exame formControlName="examesRealizados" rows="8" maxlength="500"></textarea>
-              <mat-hint aling="end">500 </mat-hint>
-          </mat-form-field>
-        </div>
-
-    <button mat-raised-button color="primary">Salvar</button>
-
+    <div class="boxsizingBorder">
+      <mat-form-field appearance="outline" class="boxsizingBorder">
+        <mat-label>Sintomas Apresentados</mat-label>
+        <textarea matInput #sintomas formControlName="sintomasApresentados" rows="8" maxlength="500"></textarea>
+        <mat-hint aling="end">500 </mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="boxsizingBorder">
+        <mat-label>Exames Realizados</mat-label>
+        <textarea matInput #exame formControlName="examesRealizados" rows="8" maxlength="500"></textarea>
+        <mat-hint aling="end">500 </mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="container">
+      <div class="row">
+          <div class="col-xs-12">
+        <button mat-flat-button class="mat-button pull-right">Salvar</button>
+      </div>
+    </div>
+  </div>
   </form>
 </app-conteudo-pagina>

@@ -6,6 +6,7 @@ import { HomeComponent } from './home';
 import { ListaConsultaComponent } from './lista-consulta/lista-consulta.component';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register/register.component';
+import { UploadComponent } from './upload/upload.component';
 import { AuthGuard } from './_helpers';
 //import { AuthGuard } from './_helpers';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'listarConsulta', component: ListaConsultaComponent, canActivate: [AuthGuard] },
     { path: 'detalhesConsulta', component: DetalhesConsultasComponent, canActivate: [AuthGuard] },
     { path: 'cadastroConsulta', component: CadastroConsultaComponent, canActivate: [AuthGuard]},
+    { path: 'update', component: UploadComponent},
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

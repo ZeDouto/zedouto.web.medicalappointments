@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -17,18 +17,17 @@ export class AuthenticationService {
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
+    httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      }
+
     public get currentUserValue(): User {
         return this.currentUserSubject.value;
     }
 
-    login(username: string, password: string) {
+    login(user: User) {
 
-        let params = new HttpParams();
-
-        params = params.append('senha', password);
-        params = params.append('crm', username);
-
-        return this.http.get<User>(this.url, { params: params })
+        return this.http.post<User>(this.url, user, this.httpOptions)
             .pipe(map(user => {
                 if (user && user.crm) {
                     localStorage.setItem('currentUser', JSON.stringify(user));
