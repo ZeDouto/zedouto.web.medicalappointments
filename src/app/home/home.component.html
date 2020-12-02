@@ -1,46 +1,81 @@
 <app-toolbar></app-toolbar>
-<div class="home">
-    <div class="apesentacao">
-    <h1>Olá {{currentUser.nome}}!</h1>
-    <p>Bem vindo ao seu portal de atendimento</p>
-</div>
-</div>
-<div class="cards">
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Consultas na sua mão</mat-card-title>
-            <mat-card-subtitle>Tenha todo o historico do seu paciente</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSebcba1j6XLb6D0jNBeIxTGLk4FFL2oMdiJA&usqp=CAU" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>Aqui você pode acompanhar todo o Historico de consultas do seu paciente, de forma facil e rapida!</p>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Gerencie suas consultas</mat-card-title>
-            <mat-card-subtitle>Tenha todas as suas consultas realizadas </mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSebcba1j6XLb6D0jNBeIxTGLk4FFL2oMdiJA&usqp=CAU" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>Aqui você pode acompanhar todoas as consultas que você ralizou ou que irá realizar</p>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Gere prontuarios</mat-card-title>
-            <mat-card-subtitle>De forma rapida e simples</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSebcba1j6XLb6D0jNBeIxTGLk4FFL2oMdiJA&usqp=CAU" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>Aqui você pode gerar os prontuarios das suas consultas de forma simples</p>
-        </mat-card-content>
-    </mat-card>
-</div>
+		<!-- Banner -->
+        <section id="banner">
+            <h2>{{currentUser.nome}}, Bem vindo ao portal de atendimento</h2>
+            <p>Simples, rapido e eficiente</p>
+        </section>
 
-<div class="fim">
-</div>
+		<!-- One -->
+        <section id="one" class="wrapper style1 align-center">
+            <div class="container">
+                <header>
+                    <h2>Conheça nossos serviços</h2>
+                    <p>Um pouco sobre o que ofereçemos para você.</p>
+                </header>
+                <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <section class="4u 12u$(small)">
+                        <i class="icon big rounded fa-clock-o" routerLink="/cadastroConsulta"></i>
+                        <p>Gere prontuarios</p>
+                    </section>
+                    <section class="4u 12u$(small)">
+                        <i class="icon big rounded fa-camera-retro"></i>
+                        <p>Gerencie suas consultas</p>
+                    </section>
+                    <section class="4u 12u$(small)"> 
+                        <i class="icon big rounded fa-user" routerLink="/listarConsulta"></i>
+                        <p>Consultas na sua mão</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+		<!-- Footer -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <section class="4u 6u(medium) 12u$(small)">
+                        <h3>Apoio</h3>
+                        <p>Prof. Calvetti</p>
+                    </section>
+                    <section class="4u 6u(medium) 12u$(small)">
+                        <h3>Criadores</h3>
+                        <p>Conheça nossos criadores</p>
+                        <ul class="alt">
+                            <li>Matheus Paiva</li>
+                            <li>Matheus Sampaio</li>
+                        </ul>
+                    </section>
+                    <section class="4u$ 12u$(medium) 12u$(small)">
+                        <h3>Contatos</h3>
+                        <ul class="icons">
+                            <li><a href="#" class="icon rounded fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon rounded fa-facebook"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon rounded fa-pinterest"><span class="label">Pinterest</span></a></li>
+                            <li><a href="#" class="icon rounded fa-google-plus"><span class="label">Google+</span></a></li>
+                            <li><a href="#" class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                        </ul>
+                        <ul class="tabular">
+                            <li>
+                                <h3>Endereço</h3>
+                                Rua da Felicidade, 458<br>
+                                São Paulo, Brasil
+                            </li>
+                            <li>
+                                <h3>email</h3>
+                                <a href="#">contato@zedouto.com.br</a>
+                            </li>
+                            <li>
+                                <h3>Telefone</h3>
+                                (11) 92000-0000
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+                <ul class="copyright">
+                    <li>&copy; USJT. 2020.</li>
+                    <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+                </ul>
+            </div>
+        </footer>
+
 

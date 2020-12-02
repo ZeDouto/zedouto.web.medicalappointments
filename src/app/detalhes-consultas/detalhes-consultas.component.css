@@ -8,3 +8,12 @@
     border: 1px solid rgba(0,0,0,.125);
     box-shadow: 0 1px 4px 0  rgba(0,0,0,0.1);
 }
+
+.receita{
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    margin-top: 30px;
+}

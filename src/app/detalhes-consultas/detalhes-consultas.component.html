@@ -2,7 +2,12 @@
 <app-conteudo-pagina>
   <h1>Consulta</h1>
   <mat-chip> Data realizada: {{consulta.data}}</mat-chip>
-    <mat-icon>picture_as_pdf</mat-icon>
+
+  <div class="receita">
+    <h5>Receita</h5>
+  <mat-icon (click)="verReceita()">content_paste</mat-icon>
+</div>
+  
   <mat-tab-group class="tab-group-margin" animationDuration="0ms" mat-align-tabs="center">
     <mat-tab label="Paciente">
       <div class="container container-group consulta-tab">

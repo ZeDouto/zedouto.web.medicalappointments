@@ -32,7 +32,7 @@ export class ConsultaService{
      return this.http.get<Consulta[]>(this.url + '/paciente/' + id, this.httpOptions).pipe(catchError(this.handleError));
  }
 
- getConsultaByMedico(id: string) {
+ getConsultaByMedico(id: number) {
   return this.http.get<Consulta[]>(this.url + '/medico/' + id, this.httpOptions).pipe(catchError(this.handleError));
 }
 

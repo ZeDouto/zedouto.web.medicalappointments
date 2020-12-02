@@ -8,7 +8,7 @@ import { UserService, AuthenticationService } from '../_services';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss', './css/skel.css', './css/style.css', './css/style-xlarge.css']
 })
 export class HomeComponent implements OnInit {
   currentUser: User;
@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.loadAllUsers();
   }
 
   ngOnDestroy() {
